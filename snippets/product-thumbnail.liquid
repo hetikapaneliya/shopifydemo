@@ -1,0 +1,27 @@
+
+    <!--Product Image-->
+ 
+    <div class="product_slider">
+      <div class=" product_image product-images-previews">
+        <ul class="product_ul">
+          {% if product.images.size > 0 %}
+              {% for image in product.images %}
+                {{ forloop.index}}
+          <li class="thum_item"  data-img="{{ image | img_url: '500x' }}"><img class="thum_item" src="{{ image | img_url: '500x' }}" alt="{{ image.alt | escape }}"></li>
+          {% endfor %}
+          {% else %}
+          <li class="slide">{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}</li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <!---Product Main image-->
+      <div class="product-big-image">
+        {% if product.images.size > 0 %}
+        <img src="#test" alt="">
+        {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+
+      </div>
+    </div>
